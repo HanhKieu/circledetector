@@ -23,13 +23,13 @@ rows = size(myImg,1);
 columns = size(myImg,2);
 
 my = reshape(myImg,rows * columns,3);
-[idx,centerMatrix] = kmeans(double(my),k,'Distance','sqeuclidean','Replicates',3);
+[idx,centerMatrix] = kmeans(double(my),k);
 
 idx = reshape(idx,rows,columns);
 
 centerMatrix
 
-k = 2;
+k = 8;
 
 newMatrix = zeros(rows,columns,3);
 
