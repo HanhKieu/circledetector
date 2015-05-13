@@ -1,4 +1,4 @@
-function [outputImg] = quantizeRGB( myImg,k )
+function [outputImg, centerMatrix] = quantizeRGB( myImg,k )
 %UNTITLED3 Summary of this function goes here
 %   Detailed explanation goes here
 % rows = size(myImg,1);
