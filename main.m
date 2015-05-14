@@ -1,7 +1,9 @@
 myImg = imread('myImg.jpg');
 
-outputImg = quantizeRGB(myImg,8);
-imshow(outputImg);
+outputImgRGB = quantizeRGB(myImg,8);
+imshow(outputImgRGB);
 
-outputImg = quantizeHSV(myImg,8);
-imshow(outputImg)
+outputImgHSV = quantizeHSV(myImg,8);
+imshow(outputImgHSV)
+
+error = computeQuantizationError(myImg,outputImgRGB);
