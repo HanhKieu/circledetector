@@ -16,6 +16,6 @@
 
 im = imread('jupiter.jpg');
 useGradient = 0;
-r = 
+r = 50;
 centers = detectCircles(im,r,useGradient);
   
