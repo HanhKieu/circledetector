@@ -11,7 +11,8 @@ H = zeros(rows,columns);
 [edgex,edgey] = find(edgeImg == 1); %allocate memory
 
 if useGradient == 0
-    [myGradx,myGrady] = imgradientxy(im2double(im));
+    
+    %[myGradx,myGrady] = imgradientxy(im2double(im));
     %arctotan(myGradx)
 
     %gradImg = sqrt((myGradx.^2) + (myGrady.^2));
@@ -77,20 +78,45 @@ end
 
 
 
+
+
+
+%-----UNDER HERE IS KMEANS FOR ACCUMULATOR ----
+% k = 200;
+% my = reshape(H,rows * columns,1);
+% [idx,centerMatrix] = kmeans(double(my),k);
+% 
+% idx = reshape(idx,rows,columns);
+% 
+% 
+% for i=1:1:k
+%     [x,y] = find(idx == i);
+%     for j=1:1:size(x,1)
+%         H(x(j,1),y(j,1)) = centerMatrix(i,1); %R
+%     end
+% end
+
+%END KMEANS--------------------------------
+
+
 Hnorm = (H ./ max(max(H)));
-[mx,my] = find(Hnorm > .90);
+[mx,my] = find(Hnorm > .98); %MY THRESHOLD
 
 centers = horzcat(mx,my);
 % centers
 
     
-% centers = houghpeaks(H,5);
-    
-% viscircle()
 
-% 
+Column1 = centers(:,1);
+Column2 = centers(:,2);
+centers = horzcat(Column2,Column1);
+
+%centers = houghpeaks(H,20);
+
+% figure
 % imagesc(H);
- 
+% title('GRAD: 0, RADIUS: 5, HOUGHPEAKS N = 20')
+%  
  
 
 
